@@ -1,23 +1,29 @@
-import React from "react";
-import Cards from './Componentes/Cards'
-import './App.css'
-import Medioambiente from './Componentes/Medioambiente'
-import Tabs from './Componentes/Tabs'
+import Tabs from "./componentes/Tabs";
+import ToursContextProvider from "./contexts/ToursContext";
+import Header from "./componentes/Header";
+import CartContextProvider from "./contexts/CartContext";
+import Body from "./componentes/Body";
+import Carrousel from "./componentes/Carrousel";
+import Footer from "./componentes/Footer";
+import { BookingForm } from "./componentes/BookingBar2";
+
 
 function App() {
+
   return (
-    <div className="App">
-
-      <Medioambiente />
-
-      <h4 className="Titulo1">PAQUETES</h4>
-
-      <Cards />
-
-      <Tabs/>
-
-    </div>
-
+    <>
+      <CartContextProvider>
+        <Header />
+        <Carrousel></Carrousel>
+          <BookingForm />
+        
+        <Body></Body>
+        <ToursContextProvider>
+          <Tabs></Tabs>
+        </ToursContextProvider>
+        <Footer></Footer>
+      </CartContextProvider>
+    </>
   );
 }
 
